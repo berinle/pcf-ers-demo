@@ -1,0 +1,12 @@
+---
+applications:
+- name: attendees-b
+  routes:
+  - route: attendees-blue-aae.apps.pcfone.io
+  memory: 1GB #512MB
+  instances: 1
+  path: deploys/pcf-ers-demo1-0.0.1-SNAPSHOT-v1.jar
+  buildpack: java_buildpack_offline
+  services: []
+  env:
+    SPRING_PROFILES_ACTIVE: cloud

@@ -1,0 +1,4 @@
+name: attendees-g
+route: attendees-green-aae.cfapps.io
+path: deploys/pcf-ers-demo1-0.0.1-SNAPSHOT-v2.jar
+buildpack: java_buildpack
