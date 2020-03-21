@@ -18,6 +18,5 @@ deploy:
   manifest: manifest-v1.yml
   on:
     branches:
-      only:
-      - dev
-      - master
+     - dev
+     - master
