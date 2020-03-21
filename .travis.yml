@@ -12,3 +12,4 @@ deploy:
   dry-run: false
   on:
     tags: true
+language: java
