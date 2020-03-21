@@ -1,9 +1,9 @@
 <!--
-This page contains thymeleaf fragments used by all pages in the application 
+This page contains thymeleaf fragments used by all pages in the application
 
 References:
 - http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-grid-system.php
- 
+
 -->
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
@@ -31,7 +31,7 @@ References:
 
 <style>
 .navbar.navbar-inverse.navbar-fixed-top {
-	background-color: #3EBF5C;
+	background-color: #3EB0FF;
 }
 
 .navbar-inverse .navbar-brand {
@@ -51,7 +51,7 @@ References:
 }
 
 .table-fixed tbody {
-	height: 150px;
+	height: 160px;
 	overflow-y: auto;
 	width: 100%;
 }
@@ -96,17 +96,17 @@ References:
 			<div class="collapse navbar-collapse"
 				id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="basics">Basics</a></li>
+					<li><a href="basics">Scale &amp; HA</a></li>
 					<li><a href="services">Services</a></li>
 					<li><a href="bluegreen">Blue Green</a></li>
 
 					<li class="dropdown"><a data-toggle="dropdown"
 						class="dropdown-toggle" href="#">SpringBoot <b class="caret"></b></a>
 						<ul role="menu" class="dropdown-menu">
-							<li><a href="info">Build Info</a></li>
-							<li><a href="env">Show Environment</a></li>
-							<li><a href="mappings">Mappings</a></li>
-							<li><a href="health">Health</a></li>
+							<li><a href="/actuator/info">Build Info</a></li>
+							<li><a href="/actuator/env">Show Environment</a></li>
+							<li><a href="/actuator/mappings">Mappings</a></li>
+							<li><a href="/actuator/health">Health</a></li>
 						</ul></li>
 				</ul>
 			</div>
@@ -131,26 +131,32 @@ References:
 				<div id="collapseZero" class="panel-collapse collapse in">
 					<div class="panel-body">
 						<p>
-							Application Name <b
-								th:text="*{applicationName}?: 'running locally'"></b>
+							<b>Application Name:</b>&nbsp;<span
+								th:text="*{applicationName}?: 'running locally'"></span>
 						</p>
 						<p>
-							The instance index is <b id="instanceIndex" th:text="${instanceIndex}"></b>
+							<b>Instance Index:</b>&nbsp;<span id="instanceIndex"
+								th:text="${instanceIndex}"></span>
 						</p>
 						<p>
-							The instance address is <b id="instanceAddress" th:text="${instanceAddr}"></b>
+							<b>Container Address:</b>&nbsp;<span id="containerAddr"
+								th:text="${containerAddr}"></span>
 						</p>
-
-						<p th:if="${inetaddressLocalhost != null}">
-							Local IP address is <b id="inetaddressLocalhost" th:text="${inetaddressLocalhost}"></b>
+						<p>
+							<b>Cell Address:</b>&nbsp;<span id="instanceAddress"
+								th:text="${instanceAddr}"></span>
 						</p>
-
+						<p>
+							<b>Java Version:</b>&nbsp;<span id="javaVersion"
+								th:text="${javaVersion}"></span>
+						</p>
+						<hr></hr>
 						<h4>Services</h4>
-						<p th:if="${applicationServices.isEmpty()}">Using embedded H2
-							DB</p>
+						<span th:if="${applicationServices.isEmpty()}">None</span>
 						<p th:each="instance : ${applicationServices}">
-							<b><span th:text="${instance.key}">keyvalue</span></b> <span
-								th:text="${instance.value}">num</span> <br />
+							<b><span
+								th:text="${#strings.substringBefore(instance.key,'~~~')}"></span></b>:&nbsp;<span
+								th:text="${instance.value}"></span><br />
 						</p>
 
 						<div id="resultsBlock-health"></div>
@@ -214,13 +220,13 @@ References:
 			//$("#resultsBlock-health").load("/health");
 
 			/**
-			$.getJSON('/health', function(health) {
+			$.getJSON('/actuator/health', function(health) {
 				$('#resultsBlock-health').html(
 						'<p>The database is <b>' + health.db.database
 								+ '</b></p>');
 			});
 
-			$.getJSON('/info', function(info) {
+			$.getJSON('/actuator/info', function(info) {
 				$('#resultsBlock-info').html(
 						'<p>The Artifact is <b>' + info.build.artifact
 								+ '</b></p>');

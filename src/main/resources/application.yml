@@ -4,16 +4,20 @@ spring.jpa.hibernate.ddl-auto: update
 
 ribbon:
   eureka:
-   enabled: false
+    enabled: false
 
 spring:
   application:
     name: attendees
-    
-# Using macros that are replaced by maven build
-info:
-  build:
-    artifact: @project.artifactId@
-    name: @project.name@
-    description: @project.description@
-    version: @project.version@
+
+# don't do this in production, we are doing it here so that
+# we can do features of Cloud Foundry without having to explain
+# spring security
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  info:
+    git:
+      mode: full
