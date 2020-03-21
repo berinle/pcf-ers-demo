@@ -1,6 +1,6 @@
 language: java
 jdk:
-  - oraclejdk10
+  - openjdk11
 script: env && ./mvnw package -B
 #before_deploy: ./ci/travis_beforeDeploy.sh
 #deploy:
