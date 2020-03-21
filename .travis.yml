@@ -17,6 +17,5 @@ deploy:
     secure: BGWQqt6FawSz9CXaK8TRZ3cWTiaLIShL0FDNQpdbFXtLk62/cqm9LLRmiLgIwVlCw444QECC6xXxR2UeSg5o1+RokxAV7AEeMevFynlQL/p7voaM8ZD5v4bvC5zJonG/+nMAtJhUUqEqlmBrBQCZszo3NdLjnu5sy4NnHJxf+fX8GDTDmEVxxnZtHVMCiReynbFKkPRvqLUEx0Poq1BVuCxoDNs45jcfqGhkbjEtmmIiVNgXR5mQpandRg+daDefHyl+cxWwFEzViVLEjZVhkzh9tvgRDTUz5+3VLxst0AKYDqppARsarWbtO391he/rNselxlzclmIBdZLohl2Dn4QAfy+wZd9EVKM/t4TlDdhSOOkITL2/0IIJzXrspTSyZR5ap2Cm3/f0Oxwh9ShhVcMgmm4LGKNp7BqJ/suxlzq8+ZBeKHTsJLiwolztrd7Fk8NxY3ObhOcW2YM5TP8m7caFKnKxzG0Sa3eZzon4zPlh4/FGGtu5tbEWZLunLK0/AfmBNJX6C8FTvXARevEO7nOYiaNxlu+kY3t/SYJtM/ZgJng5X+Q9uwu/x7w7tNCKiQQhJuuy5vhEAohJRCoFoewFUTyPCa+ikECT1UQW8gFt+hj6/I5aQ57zvxSr2W7PQ6qlAFKIO4mpI5Qg2Vb1EtaDCzKNvzWgtJnfBg5rn2Y=
   manifest: manifest-v1.yml
   on:
-    branches:
-     - dev
-     - master
+    branch: dev
+    # all_branches: true
