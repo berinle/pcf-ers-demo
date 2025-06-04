@@ -1,7 +1,7 @@
 package io.pivotal.pcf.sme.ers.client.model;
 
-import org.springframework.hateoas.PagedResources;
+import org.springframework.hateoas.PagedModel;
 
-public class PagedAttendees extends PagedResources<Attendee>{
+public class PagedAttendees extends PagedModel<Attendee> {
 
 }
