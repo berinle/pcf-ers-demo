@@ -1,4 +1,4 @@
-= Pivotal Cloud Foundry Basics 
+= Pivotal Tanzu Platform Cloud Foundrys 
 Pivotal Platform Architecture Team
 :backend: deckjs
 :deckjs_transition: fade
