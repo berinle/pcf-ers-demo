@@ -1,0 +1,14 @@
+---
+applications:
+- name: attendees-b
+  memory: 768M
+  instances: 1
+  #random-route: true
+  # routes:
+  # - route: attendees.apps.tanzuwld.xyz
+  path: app-blue.jar
+  buildpack: java_buildpack_offline
+  services: []
+  env:
+    SPRING_PROFILES_ACTIVE: cloud
+    JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 17.+ } }'
